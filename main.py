@@ -34,6 +34,15 @@ class Currency:
 if type(other) == int or type(other) == floar:
   x = (other * Currency.currencies[other,unit] * Currency.currencies[self.unit])
   return Currency(x+self.value, self.unit)
+
+def __iadd__(self,other):
+return Currency.__add__(self,other)
+
+def __rad__(self,other):
+  res = self + other
+  if self.unit != "USD"
+    res.changeTO("USD")
+  return res
                 
       
   
