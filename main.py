@@ -50,6 +50,19 @@ def __sub__ (self,other):
   else:
     x = (other.value / Currency.currencies[other.unit] * Currency.currencies[self.unit]) 
   return Currency(self.value - x, self.unit)
+
+def __isub__(self, other):
+  """
+    Similar to __sub__
+  """
+  return Currency.__sub__(self,other)
+
+def __rsub__(self, other):
+  res = other - self.value
+  res = Currency(res,self.unit)
+  if self.unit != "USD":
+    res.changeTo("USD")
+  return res
       
 v1 = Currency(23.43, "EUR")
 v2 = Currency(19.97, "USD")
