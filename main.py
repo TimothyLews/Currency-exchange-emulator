@@ -43,10 +43,14 @@ def __rad__(self,other):
   if self.unit != "USD"
     res.changeTO("USD")
   return res
-                
-      
   
-
+def __sub__ (self,other):
+  if type(other) == int or type(other) == float:
+    x = (other * Currency.currencies[self.unit])
+  else:
+    x = (other.value / Currency.currencies[other.unit] * Currency.currencies[self.unit]) 
+  return Currency(self.value - x, self.unit)
+      
 v1 = Currency(23.43, "EUR")
 v2 = Currency(19.97, "USD")
 print(v1 + v2)
