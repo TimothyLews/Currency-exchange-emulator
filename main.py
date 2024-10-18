@@ -24,18 +24,16 @@ class Currency:
     self.value = (self.value / Currency.currencies[self.unit] * Currency.currencies[new_unit])
     self.unit = new_unit
   
-  #add magic methods here
-  def __repr__(self):
-  # This method returns the string to be printed. This should be the value rounded to two digits, accompanied by its acronym.
-    pass
-  
   def __str__(self):
-    #This method returns the same value as __repr__(self).
-    pass
+    return f"{round(self.value, 2)} {self.unit}"
+
+  def __repr__(self):
+    return f"Currency({self.value}, {self.unit})"
   
   def __add__(self,other):
-    #Defines the '+' operator. If other is a Currency object, the currency values are added and the result will be the unit of self. If other is an int or a float, other will be treated as a USD value.
-    pass
+if type(other) == int or type(other) == floar:
+  x = (other * Currency.currencies[other,unit] * Currency.currencies[self.unit])
+  return Currency(x+self.value, self.unit)
                 
       
   
