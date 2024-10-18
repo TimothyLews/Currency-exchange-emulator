@@ -11,6 +11,12 @@ class Currency:
     self.value = value
     self.unit = unit
 
+  def __str__(self):
+    return f"{round(self.value, 2)} {self.unit}"
+
+  def __repr__(self):
+    return f"Currency({self.value}, {self.unit})"
+
   def changeTo(self, new_unit):
     """
       An Currency object is transformed from the unit "self.unit" to "new_unit"
