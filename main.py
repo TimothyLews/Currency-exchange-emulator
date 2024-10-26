@@ -30,17 +30,19 @@ class Currency:
   def __repr__(self):
     return f"Currency({self.value}, {self.unit})"
   
-  def __add__(self,other):
-if type(other) == int or type(other) == floar:
-  x = (other * Currency.currencies[other,unit] * Currency.currencies[self.unit])
-  return Currency(x+self.value, self.unit)
+    def __add__(self,other):
+    if type(other) == int or type(other) == float:
+      x = (other * Currency.currencies[self.unit])
+    else:
+      x = (other.value / Currency.currencies[other.unit] * Currency.currencies[self.unit])
+    return Currency(x+self.value, self.unit)
 
 def __iadd__(self,other):
 return Currency.__add__(self,other)
 
 def __rad__(self,other):
   res = self + other
-  if self.unit != "USD"
+  if self.unit != "USD":
     res.changeTO("USD")
   return res
   
